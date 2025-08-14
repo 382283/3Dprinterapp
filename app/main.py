@@ -28,7 +28,7 @@ def read_order(order_id: int, db: Session = Depends(get_db)):
 
 @app.put("/orders/{order_id}/status")
 def update_order(order_id: int, new_status: str, db: Session = Depends(get_db)):
-    return crud.get_order(db, order_id, new_status)
+    return crud.update_order_status(db, order_id, new_status)
 
 
 @app.delete("/orders/{order_id}")
