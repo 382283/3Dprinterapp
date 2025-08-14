@@ -15,6 +15,9 @@ def get_db():
     finally:
         db.close()
 
+@app.get("/orders/")
+def read_orders(db: Session = Depends(get_db)):
+    return crud.get_all_orders(db)
 
 @app.post("/orders/")
 def create_order(customer_name: str, description: str, db: Session = Depends(get_db)):

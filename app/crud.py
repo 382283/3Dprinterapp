@@ -22,6 +22,8 @@ def create_order(
 def get_order(db: Session, order_id: int):
     return db.query(Order).filter(Order.id == order_id).first()
 
+def get_all_orders(db: Session):
+    return db.query(Order).all()
 
 def update_order_status(db: Session, order_id: int, new_status: str):
     order = db.query(Order).filter(Order.id == order_id).first()
